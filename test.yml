@@ -1,9 +1,9 @@
 ---
 
 - hosts: all
-  gather_facts: no
   tasks:
   - name: Ansible create new file with permissions example.
+    become:yes
     file:
       path: "/home/ec2-user/shourya.txt"
       state: touch
