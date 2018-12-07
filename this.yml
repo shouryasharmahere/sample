@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  tasks:
+  - name: Ansible create file, if it doesn't exist with content 
+    copy:
+      dest: "/home/ec2-user/this.txt"
+      content: | 
+       touch
+       me 
+       not 

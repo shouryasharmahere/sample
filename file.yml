@@ -1,0 +1,8 @@
+---
+- hosts:all 
+  tasks:
+  - name:create file.txt
+    copy:
+     dest: "/home/ec2-user/file.txt"
+     content: |
+      this is going global

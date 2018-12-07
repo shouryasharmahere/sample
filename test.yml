@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Ansible create new file with permissions example.
+    file:
+      path: "/home/ec2-user/shourya.txt"
+      state: touch
+      mode: 0644
+      owner: ec2-user

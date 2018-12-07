@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Diff. nultiple items
+    file:
+      path: "{{item.location}}"
+      state: touch
+      mode: "{{item.mode}}"
+    with_items:
+    - { location: 'init5.txt', mode: '0777'}
+    - { location: 'init6.txt', mode: '0775'}

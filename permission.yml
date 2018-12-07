@@ -1,0 +1,10 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: set permissions
+    file:
+     path: "/home/ec2-user/file.txt"
+     state: touch
+     mode: 0777
+     owner: ec2-user
+

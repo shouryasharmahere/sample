@@ -1,0 +1,13 @@
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: install at
+    become: yes
+    yum:
+      name: at
+      state: present 
+  - name: service up at
+    become: yes
+    service:
+      name: atd
+      state: started    

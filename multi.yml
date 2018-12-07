@@ -1,0 +1,11 @@
+- hosts: all
+  tasks: 
+  - name: create multiple files
+    file:
+      path: "{{ item }}"
+      state: touch
+      mode: 0775
+    with_items: 
+    - init1.txt
+    - init2.txt
+    - init3.txt
