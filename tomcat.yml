@@ -51,13 +51,19 @@
     tags:
       - permissions
     file:
-      path: /opt/tomcat/conf
+      path: /opt/tomcat/{{item}}
       owner: tomcat
       recurse: yes
       mode: "g+r"
+    with_items:
+      - conf
+      - bin
     file:
-      path: /opt/tomcat/conf
+      path: /opt/tomcat/{{item}}
       mode: "g+rwx"
+    with_items:
+      - conf
+      - bin
     file:
       path: /opt/tomcat/{{item}} 
       recurse: yes
@@ -67,3 +73,11 @@
       - logs
       - webapps
       - work
+    file:
+       owner: tomcat
+       recurse: yes
+       path: /opt/tomcat/{{item}}
+    with_items:
+       - bin
+       - lib
+      
