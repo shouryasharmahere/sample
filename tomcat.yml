@@ -4,7 +4,7 @@
   tasks:
   - name: install epel
     yum:
-      name: epel-release
+      name: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
       state: present
     become: yes
   - name: update 
@@ -80,4 +80,19 @@
     with_items:
        - bin
        - lib
-      
+  - name: shell install haveged & start apache
+    become: yes
+    tags: 
+      - shell
+    get_url:
+      force: yes
+      url: https://s3.amazonaws.com/awslover/tomcat 
+      dest: /etc/systemd/system/tomcat.service
+    yum:
+      name: haveged 
+      state: present
+    systemd: 
+      name: haveged.service
+      name: tomcat.service
+      state: started 
+      enabled: yes
